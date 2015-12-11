@@ -117,7 +117,8 @@ function setTime(timerDiv) {
   h = Math.floor(delta / 3600);
   m = Math.floor((delta % 3600) / 60);
   s = delta - 3600*h - 60*m;
-  timerDiv.find('.fa-time').text(h+"h "+m+"m "+s+"s");
+  fractime = Math.round(delta / 36) / 100;
+  timerDiv.find('.fa-time').text(fractime); //(h+"h "+m+"m "+s+"s");
 }
 
 function stopTimer(timerDiv) {
@@ -138,14 +139,15 @@ function updateTotal(timerDiv, sTime) {
   h = Math.floor(newTot / 3600);
   m = Math.floor((newTot % 3600) / 60);
   s = newTot - 3600*h - 60*m;
-  totalNode.text(h+"h "+m+"m "+s+"s");
+  nT = Math.round(newTot / 36) / 100;
+  totalNode.text(nT); //(h+"h "+m+"m "+s+"s");
 }
 
 /*
  * custom rows
  */
 function addRowButtons() {
-  var imgUrl = chrome.extension.getURL("ressources/addTimer.png");
+  var imgUrl = chrome.extension.getURL("resources/addTimer.png");
   $('div.x-grid3-row').each(function (i, obj) {
     var row = $(obj);
     row.find('.x-grid3-td-1').append('<button class="fa-done-btn tb-btn tb-btn-link" OnClick="toggleDone(this)">done</button>');

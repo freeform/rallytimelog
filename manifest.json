@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
 
-    "name": "timelog",
+    "name": "Rally Timelog",
     "description": "Rally extension for time logging.",
     "version": "0.1",
 
     "browser_action": {
-      "default_icon": "ressources/icon.png",
+      "default_icon": "resources/icon.png",
       "default_popup": "src/popup/popup.html"
     },
 
@@ -34,5 +34,5 @@
       }
     ],
 
-    "web_accessible_resources": ["ressources/addTimer.png", "src/background/timer.js", "src/helpers/jquery-1.9.1.min.js"]
+    "web_accessible_resources": ["resources/addTimer.png", "src/background/timer.js", "src/helpers/jquery-1.9.1.min.js"]
 }
