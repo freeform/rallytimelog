@@ -203,7 +203,7 @@ function collectData() {
 }
 
 function resetData() {
-  chrome.runtime.sendMessage({query: "data"}, function(response) {
+  chrome.runtime.sendMessage('@@extension_id',{query: "data"}, function(response) {
     var data = response.data;
     $('div.x-grid3-row').each(function (i, obj) {
       var jobj = $(obj);
@@ -231,12 +231,13 @@ function resetData() {
         }
       }
   });
+console.log(data);
   });
 }
 
 function startSaving() {
   setInterval(function() {
-    chrome.runtime.sendMessage({query: "save", data: collectData()}, function(response) {
+    chrome.runtime.sendMessage('@@extension_id', {query: "save", data: collectData()}, function(response) {
     });
   }, 1000);
 }
